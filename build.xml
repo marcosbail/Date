@@ -5,7 +5,7 @@
     <property name="classes" value="classes"/>
     <property name="conf" value="etc"/>
 
-    <property name="paquetes" value="es.unileon.prg.Date"/>
+    <property name="paquetes" value="es.unileon.prg.date"/>
 
     <target name="clean">
       <delete dir="${classes}"/>
@@ -18,7 +18,7 @@
     </target>
 
     <target name="run" depends="compile">
-      <java classname="es.unileon.prg.Date.PruebaPractica">
+      <java classname="es.unileon.prg.date.Main">
          <classpath>
               <pathelement path="${classes}"/>
          </classpath>
