@@ -30,18 +30,17 @@ public class Date
 	StringBuffer buff = new StringBuffer();
 	if((day>31)||(day<1))
 	{
-		buff.append("El dia esta fuera de rango (mas de 31 o menos de 1)");
-			
+		buff.append("\nEl dia esta fuera de rango (mas de 31 o menos de 1)");
 	}
 
 	if((month>12)||(month<1))
 	{
-		buff.append("El mes esta fuera de rango (mas de 12 o menos de 1)");
+		buff.append("\nEl mes esta fuera de rango (mas de 12 o menos de 1)");
 	}
 
 	if(year<0)
 	{
-		buff.append("El año es negativo (fuera de rango)");
+		buff.append("\nEl año es negativo (fuera de rango)");
 	}
 	
 	if(buff.length()!=0)
@@ -74,11 +73,6 @@ public class Date
 		_year=year;
 	}
 
-	/*public int getDate()
-	{
-
-	}*/
-
 	public int getDay()
 	{
 		return _day;
@@ -95,7 +89,7 @@ public class Date
 	}
 
 
-/*
+
 	public boolean isValidDayRange()
 	{
 		boolean r = false;
@@ -130,7 +124,7 @@ public class Date
 				break;
 		}
 		return r;
-	}*/
+	}
 
 	public String getMonthName()
 	{
@@ -164,8 +158,6 @@ public class Date
 		}
 		return name;
 	}
-
-	//public boolean isSameDate(){}
 
  /* La primavera (equinoccio de primavera) comienza el 21 de marzo, el solsticio de verano comienza el 21 de junio, el equinoccio de otoño comienza el 23 de septiembre y el solsticio de invierno el 21 de diciembre. */
 
@@ -235,13 +227,15 @@ public class Date
 				aux.setMonth(i);
 				left.append(aux.getMonthName()+" ");
 			}
+			return left.toString();
 		}catch(DateException exc){
 			System.err.print("Date.getMonthsLeft:"+exc.getMessage());
 		}
-		return left.toString();
+
 	}
 //Write a method in Date class that prints a date. 
-	public String toString(){
+	public String toString()
+	{
 		StringBuffer salida = new StringBuffer();
 		
 		salida.append(_day+"/"+_month+"/"+_year);
@@ -254,53 +248,34 @@ public class Date
 	{
 		Date aux = new Date(this);
 		StringBuffer left = new StringBuffer();
-		try{
+		//try{
 			for(int i=this._day+1; i<=aux.getMonthDays(); i++)
 			{
 				left.append(i+" ");
 			}
-		}catch(DateException exc){
-			System.err.print("Date.getDaysLeft:"+exc.getMessage());
-		}
+		//}catch(DateException exc){
+			//System.err.print("Date.getDaysLeft:"+exc.getMessage());
+		//}
 		return left.toString();
 	}
 
 
 //For a date, print all dates until the end of  the month. 
-	/*public int getNumDays(){
-		int days = 0;
-		if((this.month==1)||(this.month==3)||(this.month==5)||(this.month==7)||(this.month==8)||(this.month==10)||(this.month==12))
-		{
-		    days = 31;
-		}
-
-		else if((this.month==4)||(this.month==6)||(this.month==9)||(this.month==11))
-		{
-		    days = 30;
-		}
-
-		else
-		{
-		    days = 28;
-		}
-
-		return days;
-
-	    }*/
 
 	public String getDatesLeftInMonth()
 	{
 		Date aux = new Date(this);
 		StringBuffer left = new StringBuffer();
-	try{
+		int j=0;
+	//try{
 		for(int i=this._day;i<=getMonthDays();i++)
 		{
-		    aux.setDay(aux.getDay()+1);
+		    setDay(aux.getDay()+j++);
 		    left.append(" "+this._day+"/"+this._month+"/"+this._year);
 		}
-	}catch(DateException exc){
-		System.err.print("Date.getDaysLeftInMonth:"+exc.getMessage());
-	}
+	//}catch(DateException exc){
+		//System.err.print("Date.getDaysLeftInMonth:"+exc.getMessage());
+	//}
 
         	return left.toString();
 	}
@@ -337,14 +312,14 @@ public class Date
 	{
 		int dias = 0;
 
-		Date fecha = new Date(this);
+		Date fecha1 = new Date(this);
 		Date fecha2 = new Date(this);
 
 		for(int i = 1; i < fecha2.getMonth(); i++)
 		{
 
-		    fecha.setMonth(i);
-		    dias += fecha.getMonthDays();
+		    fecha1.setMonth(i);
+		    dias += fecha1.getMonthDays();
 		}
 
 		return dias + this.getDay();
@@ -381,7 +356,8 @@ the first day of the year of  that date, show the day of
 the week of  the given date*/
 	public int getWeekDay(int weekDay)
 	{
-		return((getDaysSinceYear()%7)+weekDay);
+		int day=(getDaysSinceYear()%7)+weekDay;
+		return(day);
 	}
 	
 }
