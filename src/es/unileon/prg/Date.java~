@@ -174,6 +174,55 @@ public class Date
 	{
 		return _year;
 	}
+	//sameYear() sameMonth() sameDay() sameDate()
+
+	public boolean sameYear(Date other)
+	{
+		boolean b=false;
+		if(this._year==other.getYear())
+		{
+			b=true;
+		}
+	
+	return b;
+	}
+
+	public boolean sameMonth(Date other)
+	{
+		boolean b=false;
+		if(this._month==other.getMonth())
+		{
+			b=true;
+		}
+	return b;
+	}
+
+	public boolean sameDate(Date other)
+	{
+		boolean b=false;
+		if(this._year==other.getYear())
+		{
+			if(this._month==other.getMonth())
+			{
+				if(this._day==other.getDay())
+				{
+					b=true;
+				}
+			}
+		}
+		return b;
+	}
+
+	public boolean sameDay(Date other)
+	{
+		boolean b=false;
+		if(this._day==other.getDay())
+		{
+			b=true;
+		}
+	
+	return b;
+	}
 
 	public boolean isValidDayRange()
 	{
@@ -442,30 +491,4 @@ the week of  the given date*/
 	
 }
 /*Marcos Martin Bail Ingold*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
