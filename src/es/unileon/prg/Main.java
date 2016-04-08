@@ -4,26 +4,23 @@ public class Main
 	public static void main(String[] args) 
 	{
 		int dia, mes, ano;
-		//try{
+
 		System.out.println("\nIntroduce el dia: ");	
 		dia=Teclado.readInteger();
 		System.out.println("\nIntroduce el mes: ");	
 		mes=Teclado.readInteger();
 		System.out.println("\nIntroduce el año: ");	
 		ano=Teclado.readInteger();
-		//}catch(DateException exp){
-
-
-		//}
+	
 		
 		try{
 		Date date = new Date(dia,mes,ano);
-
 		System.out.println("\ntoString(): ");
 		System.out.println(date.toString());
 
 		System.out.println("\nEjercicios Switch: ");
 		System.out.println("\n");
+
 		System.out.println(date.getMonthName());
 		System.out.println("\n");
 		System.out.println(date.getSeasonName());
@@ -47,6 +44,7 @@ public class Main
 		System.out.println("\n");
 		System.out.println(date.numberOfAttempts());
 		System.out.println("\n");
+//Hay que pasarle el numero del dia de la semana en el que comienza el año
 		System.out.println(date.getWeekDay(5));
 		
 		}catch(DateException exp){
